@@ -1,5 +1,5 @@
 {% set name = "alibabacloud-tea-openapi" %}
-{% set version = "0.3.11" %}
+{% set version = "0.3.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alibabacloud_tea_openapi-{{ version }}.tar.gz
-  sha256: 3f5cace1b1aeb8a64587574097403cfd066b86ee4c3c9abde587f9abfcad38de
+  sha256: 2e14809f357438e62c1ef4976a7655110dd54a75bbfa7d905fa3798355cfd974
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
@@ -22,9 +22,9 @@ requirements:
   run:
     - python >={{ python_min }}
     - alibabacloud-tea-util >=0.3.13,<1.0.0
-    - alibabacloud-credentials >=0.3.1,<1.0.0
+    - alibabacloud-credentials >=0.3.5,<1.0.0
     - alibabacloud-openapi-util >=0.2.1,<1.0.0
-    - alibabacloud-gateway-spi >=0.0.1,<1.0.0
+    - alibabacloud-gateway-spi >=0.0.2,<1.0.0
     - alibabacloud-tea-xml >=0.0.2,<1.0.0
 
 test:

@@ -1,5 +1,5 @@
 {% set name = "alibabacloud-tea-openapi" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/alibabacloud_tea_openapi-{{ version }}.tar.gz
-  sha256: d9e1bf65f4b7c393810c3a941a43f228a2415e48b575511906f731b668acb0fc
+  sha256: 2384b090870fdb089c3c40f3fb8cf0145b8c7d6c14abbac521f86a01abb5edaf
 
 build:
   noarch: python
@@ -27,7 +27,7 @@ requirements:
     - alibabacloud-gateway-spi >=0.0.2,<1.0.0
     - alibabacloud-tea-xml >=0.0.2,<1.0.0
     - cryptography >=3.0.0,<45.0.0
-    - darabonba-core >=1.0.0,<2.0.0
+    - darabonba-core >=1.0.3,<2.0.0
 
 test:
   imports:

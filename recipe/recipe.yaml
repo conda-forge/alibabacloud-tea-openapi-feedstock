@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  name: alibabacloud-tea-openapi
+  version: "0.4.3"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/alibabacloud_tea_openapi-${{ version }}.tar.gz
+  sha256: 12aef036ed993637b6f141abbd1de9d6199d5516f4a901588bb65d6a3768d41b
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - alibabacloud-tea-util <1.0.0,>=0.3.13
+    - alibabacloud-credentials <2.0.0,>=1.0.2
+    - alibabacloud-gateway-spi <1.0.0,>=0.0.2
+    - cryptography >=3.0.0,<45.0.0
+    - darabonba-core >=1.0.3,<2.0.0
+
+tests:
+  - python:
+      imports:
+        - alibabacloud_tea_openapi
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: Alibaba Cloud openapi SDK Library for Python
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/aliyun/darabonba-openapi
+
+extra:
+  recipe-maintainers:
+    - xylar

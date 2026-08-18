@@ -24,16 +24,19 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - alibabacloud-tea-util >=0.3.13,<1.0.0
     - alibabacloud-credentials >=1.0.2,<2.0.0
     - alibabacloud-gateway-spi >=0.0.2,<1.0.0
-    - cryptography >=3.0.0,<51.0.0
+    - alibabacloud-tea-util >=0.3.13,<1.0.0
     - darabonba-core >=1.0.8,<2.0.0
+    # tightest of upstream's floors (python >=3.9)
+    - cryptography >=3.0.0,<51.0.0
 tests:
   - python:
       imports:
         - alibabacloud_tea_openapi
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - requirements:
       run:
         - pip

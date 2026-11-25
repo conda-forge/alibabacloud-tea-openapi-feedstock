@@ -27,7 +27,7 @@ requirements:
     - alibabacloud-credentials >=1.0.2,<2.0.0
     - alibabacloud-gateway-spi >=0.0.2,<1.0.0
     - alibabacloud-tea-util >=0.3.13,<1.0.0
-    - darabonba-core >=1.0.10,<2.0.0
+    - darabonba-core >=1.0.11,<2.0.0
     - cryptography >=3.0.0,<51.0.0
 tests:
   - python:
